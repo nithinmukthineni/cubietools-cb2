@@ -1,0 +1,5 @@
+machid=0xf35
+fexfile=script.bin
+kernel=uImage
+extraargs=root=/dev/mmcblk0p3 loglevel=8 rootwait console=ttyS0,115200 rw init=/init mac_addr=E2:40:02:93:5D:59 partitions=bootloader@mmcblk0p1:env@mmcblk0p2:boot@mmcblk0p3:system@mmcblk0p5:data@mmcblk0p6:misc@mmcblk0p7:recovery@mmcblk0p8:cache@mmcblk0p9:private@mmcblk0p10:databk@mmcblk0p11:UDISK@mmcblk0p12
+boot_mmc=fatload mmc 0 0x43000000 ${fexfile}; fatload mmc 0 0x48000000 ${kernel}; bootm 0x48000000
