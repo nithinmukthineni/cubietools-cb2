@@ -30,9 +30,9 @@ part_init() {
 	PART_BLOCK_SIZE=1024
 	
 	PART_BLOCKS="$(sfdisk -s $DEV 2> /dev/null | awk '{print $1}')"
-	PART_CYLINDERS="$(sfdisk -g $DEV 2> /dev/null | grep cylinders | awk '{print $2}')"
-	PART_HEADS="$(sfdisk -g $DEV 2> /dev/null | grep cylinders | awk '{print $4}')"
-	PART_SECTORS="$(sfdisk -g $DEV 2> /dev/null | grep cylinders | awk '{print $6}')"
+	PART_CYLINDERS="$(sfdisk -g $DEV 2> /dev/null | awk '{print $2}')"
+	PART_HEADS="$(sfdisk -g $DEV 2> /dev/null | awk '{print $4}')"
+	PART_SECTORS="$(sfdisk -g $DEV 2> /dev/null | awk '{print $6}')"
 	
 	if [ -z "$PART_BLOCKS" ]; then
 		echo_red "error: part_init(), unavailable device blocks info"
